@@ -6,6 +6,6 @@ pipeline:
       - apt-get -qq install libjpeg-dev zlib1g-dev gcc
       - pip install --upgrade pip
       - pip install -qUr requirements.txt
-      - rm -f movit/settings_local.py.tpl
+      - rm -f movit/settings_local.py
       - cp movit/settings_local.py.tpl movit/settings_local.py
       - python3 manage.py test
