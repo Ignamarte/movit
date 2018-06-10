@@ -121,3 +121,11 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 MEDIA_URL = '/media/'
+
+# Website options
+
+LIMIT_YEARS_DISPLAY = False
+LIMIT_YEARS = 12
+
+VIDEO_PER_PAGES = 10
+
