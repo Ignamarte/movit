@@ -1,0 +1,14 @@
+.photo {
+    max-width: 100%;
+    border: 2px solid black;
+    border-bottom: none;
+}
+
+a, a:hover, a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+.description {
+    height: 8em;
+}

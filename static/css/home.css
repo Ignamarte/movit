@@ -1,0 +1,120 @@
+@font-face {
+    font-family: LemonMilk;
+    src: url(../font/LemonMilklight.otf);
+}
+
+.intro-panel {
+    background: url(../image/main_bg.jpg) center fixed no-repeat;
+    background-size: cover;
+    display:inline-block;
+    width: 100%;
+    min-height: 90%;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.intro {
+    text-align: justify;
+    padding: 20px;
+    border: 3px solid rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 1.1em;
+}
+
+.vid {
+    display: block;
+    width: 100%;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.9);
+}
+
+.video-link {
+    font-family: LemonMilk;
+    padding: 20px;
+    font-size: 5em;
+    background-color: rgb(41, 41, 41);
+}
+
+.video-link img {
+    max-width: 1.4em;
+}
+
+.video-link a {
+    color: white;
+}
+
+.intro-title {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.home-message {
+    font-size: 1.1em;
+    text-align: justify;
+    width: 100%;
+    color: rgb(61, 61, 61);
+}
+
+.showcase {
+    color: white;
+    background: url(../image/yellow.jpg) no-repeat center fixed;
+}
+
+.realisation {
+    color: white;
+    background: url(../image/real.jpg) no-repeat center;
+}
+
+.text-in-black-box {
+    border: 2px solid rgba(0, 0, 0, 1);
+    width: 14em;
+    padding: 20px;
+    font-size: 2em;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.showcase .row {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.carousel-inner {
+    border: 3px solid black;
+}
+
+.item img {
+    max-width: 100%;
+    max-height: 100%;
+    opacity: 0.95;
+}
+
+.partners {
+    color: rgb(61, 61, 61);
+}
+
+.logo {
+    max-width: 80%;
+}
+
+.facebook-logo {
+    width: 100px;
+}
+
+.revealOnScroll {
+    opacity: 0;
+}
+
+.animated {
+    opacity: 1;
+    transition: all 0.7s;
+}
+
+@media (max-width: 991px) {
+    .intro-title {
+        font-size: 2em !important;
+    }
+
+    .video-link {
+        padding: 40px !important;
+        font-size: 3em !important;
+    }
+}

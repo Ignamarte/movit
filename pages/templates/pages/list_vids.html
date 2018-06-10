@@ -1,0 +1,54 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{{prod.name}}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/list-vid.css'%}">
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+<div class="container">
+    <div class="row text-centered">
+        <h1 class="title"><span class="test">{% trans "Liste des vidéos : " %}{{prod.name}}</span></h1>
+    </div>
+    <div class="row margin-bottom">
+        <div class="col-md-12 text">
+            <p>{{prod.description|linebreaks}}</p>
+        </div>
+    </div>
+    {% for videos in sorted %}
+        <h2 class="title">{{videos.0.year}}</h2>
+        {% for video in videos %}
+            {% if forloop.first or forloop.counter|add:-1|divisibleby:3%}
+            <div class="row">
+            {% endif %}
+                <div class="col-md-4 video-link">
+                    <a href="{% url 'pages:video' video.id %}">
+                        <img class="thumbnail" src="{{video.thumbnail.url}}" alt="{{video.name}}">
+                        <span class="video-name">{{video.name}}</span>
+                    </a>
+                </div>
+            {% if forloop.last or forloop.counter|divisibleby:3%}
+            </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    {% if has_next or has_previous %}
+    <div class="row margin-top margin-bottom">
+        <div class="col-md-12 text">
+            {% if has_previous %} <a href="{% url 'pages:prod-page' prod.id previous %}" class="nav-link-pagin"><span class="fa fa-chevron-circle-left"></span> {% trans "Précédent" %}</a> {% endif %}
+            {% if has_next %} <a href="{% url 'pages:prod-page' prod.id next %}" class="nav-link-pagin" style="float: right">{% trans "Suivant" %} <span class="fa fa-chevron-circle-right"></span></a> {% endif %}
+        </div>
+    </div>
+    {% else %}
+    <div class="row margin-bottom">
+
+    </div>
+    {% endif %}
+</div>
+</div>
+
+{% endblock %}

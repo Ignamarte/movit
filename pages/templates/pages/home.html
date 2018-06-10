@@ -1,0 +1,171 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% load i18n %}
+
+ {% block title %}
+    Movi't Accueil
+ {% endblock %}
+
+ {% block css %}
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+ {% endblock %}
+
+ {% block content %}
+ <div class="intro-panel">
+     <video class="vid" autoplay="true" loop="true">
+         <source src="{% static 'video/bg-video-croped.mp4'%}" type='video/mp4'>
+     </video>
+     <div class="video-link text-centered">
+         <a href="{{video_link}}">
+             <img src="{% static 'image/play.png' %}" alt="play">
+             DÉCOUVREZ NOUS
+         </a>
+     </div>
+     <div class="container larger-container margin-top larger-container">
+         <div class="row">
+             <div class="col-md-6 intro margin-bottom">
+                 <h2 class="text-centered intro-title">Le mot de l'équipe</h2>
+                 <p><span class="tabulation">Nous vous souhaitons la bienvenue sur le site du <span class="bold">Movi't, le club vidéo de L'IMT Atlantique</span>. Nous sommes des étudiants de tous horizons qui se réunissent grâce à notre passion de l'écriture, la production et la réalisation audiovisuelle. </p>
+                 <p><span class="tabulation">Nous filmons les évènements de la vie sur le campus comme les soirées, les tournois sportifs ou les activités des clubs et associations. Mais nous sortons aussi régulièrement du campus à l’occasion de spectacles ou de sorties liées à la vie étudiante. </p>
+                 <p><span class="tabulation">Nous recherchons des membres intéressés par divers aspects de l’audiovisuel. Que ce soit la réalisation, la production ou juste l’écriture, nous vous accueillons donc à bras ouverts!</p>
+             </div>
+         </div>
+     </div>
+ </div>
+ <div class="realisation">
+     <div class="container">
+         <div class="row">
+             <div class="col-md-offset-6 col-md-6 margin-top margin-bottom">
+                 <h2 class="text-centered intro-title">Nos réalisations</h2><hr />
+                 <span class="bigger-text">
+                     <p><span class="tabulation">Notre activité principale est la production du QHT: "Quart d'heure Télécom". C'est une sorte de "best-of" de la vie étudiante de plus d'un quart d'heure qui sort tous les mois.<br />On y retrouve également des sketchs écrits par les élèves et des interventions des clubs et associations.</p>
+                     <p><span class="tabulation">Nous travaillons également sur un nouveau concept: Le Teubreux déchainé. Dans cette émission, nous cherchons à donner la parole aux étudiants pour qu'ils nous parlent de ce qui les intéresse.</p>
+                     <p><span class="tabulation">Enfin, nous réalison des vidéos avec les étudiants pour des projets liés à l'école ou personnels.</p>
+                 </span>
+             </div>
+         </div>
+     </div>
+ </div>
+ <div class="home-message margin-top">
+     <div class="container">
+        <div class="row">
+             <div class="col-md-offset-2 col-md-8">
+                 <h2 class="text-centered intro-title">{% trans "Les remarques d’ordre pratique" %}</h2><hr>
+                 <p class="bold">Comment accéder à notre contenu ?</p>
+                 <p><span class="tabulation"></span>Si vous êtes élève ou ancien élève, vous pouvez accéder à l'ensemble de notre contenu en vous connectant avec votre compte Resel. Les autres visiteurs n’ont accès qu’au contenu publique. Vous ne parvenez pas à vous connecter ? Contacter le Resel.</p>
+	             <p class="bold">Puis-je diffuser le contenu présent sur le site ?</p>
+	             <p><span class="tabulation"></span>Désolé, mais il est interdit de diffuser les images (photo ou vidéo) du Movi't sans l'autorisation des personnes dont le droit à l'image est en jeu, des personnes ayant produit les images et du club. </p>
+	             <p class="bold">Je ne souhaite pas apparaitre dans les émissions du Movi’t, puis-je faire quelque chose ?</p>
+                 <p><span class="tabulation"></span>Nous prêtons une grande importance au droit à l’image et tout contenu vous représentant peut être modifié ou supprimé à votre demande. </p>
+             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-4 col-md-4 text-centered">
+                <a href="{{fb_link}}"><img class="facebook-logo" src="{% static 'image/fb.png'%}" alt="facebook"></a>
+                <p>{% trans "Retrouvez nous sur facebook" %}</p>
+            </div>
+        </div>
+    </div>
+</div>
+ <div class="showcase margin-top">
+     <div class="container">
+         <span class="text-in-black-box">{% trans "Les vidéos movi't" %}</span>
+         <div class="row">
+             <div id="myCarousel" class="carousel slide revealOnScroll" data-ride="carousel">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    {% for slide in slides %}
+                        <li data-target="#myCarousel" data-slide-to="{{forloop.counter|add:-1}}" {% if forloop.first %}class="active"{% endif %}></li>
+                    {% endfor %}
+                  </ol>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+                  {% for slide in slides %}
+
+                    <div class="item {% if forloop.first %} active {% endif %}">
+                        <img src="{{slide.image.url}}" alt="{{slide.name}}">
+                        <div class="carousel-caption">
+                            <h3>{{slide.name}}</h3>
+                            <p>{{slide.description}}</p>
+                        </div>
+                    </div>
+
+                  {% endfor %}
+                  </div>
+
+                  <!-- Left and right controls -->
+                  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+            </div>
+        </div>
+ </div>
+ <div class="container margin-top margin-bottom partners">
+     <h2 class="intro-title">{% trans "Nos partenaires :" %}</h2><hr>
+        {% for partner in partners %}
+        {% if forloop.first or forloop.counter|add:-1|divisibleby:3 %}
+        <div class="row">
+        {% endif %}
+            <div class="col-md-4 text-centered revealOnScroll" style="transition-delay: {{partner.1}}s;">
+                <a href="{{partner.0.website}}"><img src="{{ partner.0.logo.url }}" alt="{{partner.0.name}}" class="logo"></a>
+                <h3>{{partner.0.name}}</h3>
+            </div>
+        {% if forloop.last or forloop.counter|divisibleby:3 %}
+    </div>
+        {%endif%}
+        {% endfor %}
+</div>
+
+ {% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'js/modernizr.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.js'%}"></script>
+    <script type="text/javascript">
+        $(function() {
+
+          var $window           = $(window),
+              win_height_padded = $window.height() * 1.1,
+              isTouch           = Modernizr.touch;
+
+          if (isTouch) { $('.revealOnScroll').removeClass('animated'); }
+
+          $window.on('scroll', revealOnScroll);
+
+          function revealOnScroll() {
+            var scrolled = $window.scrollTop(),
+                win_height_padded = $window.height() * 1.1;
+
+            // Showed...
+            $(".revealOnScroll").each(function () {
+              var $this     = $(this),
+                  offsetTop = $this.offset().top;
+
+              if (scrolled + win_height_padded > offsetTop) {
+                  $this.removeClass('revealOnScroll');
+                  $this.addClass('animated');
+              }
+            });
+
+           $(".animated").each(function (index) {
+              var $this     = $(this),
+                  offsetTop = $this.offset().top;
+              if (scrolled + win_height_padded < offsetTop) {
+                $(this).addClass('revealOnScroll')
+                $(this).removeClass('animated')
+              }
+            });
+          }
+
+          revealOnScroll();
+        });
+    </script>
+{% endblock %}

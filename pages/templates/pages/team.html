@@ -1,0 +1,71 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "L'équipe" %}{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/team.css'%}">
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            {% for year in years %}
+                <div class="col-xs-2 text-centered margin-top">
+                    <p class="text year-link"><a href="{% url 'pages:specific-team' year%}">{{year}}</a></p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row text-centered">
+            <h1 class="title"><span class="test">{% trans "Équipe Movi't " %}{{team.year}}</span></h1>
+        </div>
+        <div class="row text-centered">
+            <img class="photo" src="{{team.group_photo.url}}" alt="{{team.year}}">
+        </div>
+        <div class="row">
+            <p class="text">{% trans "Président(s) :" %}</p>
+        </div>
+        {% for prez in prezs %}
+        {% if forloop.first or forloop.counter|add:-1|divisibleby:4 %}
+        <div class="row">
+        {% endif %}
+            <div class="col-md-3 text-centered">
+                {% if prez.photo %}
+                    <img class="photo" src="{{prez.photo.url}}" alt="{{prez.last_name}}">
+                {% else %}
+                    <img class="photo" src="{% static 'image/logo_carre.png' %}" alt="{{prez.last_name}}">
+                {% endif %}
+                <p class="text description">
+                    <span class="bold">{{prez.last_name}}<br />{{prez.first_name}}</span><br />{{prez.fonction}}
+                </p>
+            </div>
+        {% if forloop.last or forloop.counter|divisibleby:4 %}
+        </div>
+        {% endif %}
+        {% endfor %}
+        <div class="row">
+            <p class="text">{% trans "Membres :" %}</p>
+        </div>
+        {% for member in members %}
+        {% if forloop.first or forloop.counter|add:-1|divisibleby:4 %}
+        <div class="row">
+        {% endif %}
+            <div class="col-md-3 text-centered">
+                {% if member.photo %}
+                    <img class="photo" src="{{member.photo.url}}" alt="{{member.last_name}}">
+                {% else %}
+                    <img class="photo" src="{% static 'image/logo_carre.png' %}" alt="{{member.last_name}}">
+                {% endif %}
+                <p class="text description">
+                    <span class="bold">{{member.last_name}}<br />{{member.first_name}}</span><br />{{member.fonction}}
+                </p>
+            </div>
+        {% if forloop.last or forloop.counter|divisibleby:4 %}
+        </div>
+        {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

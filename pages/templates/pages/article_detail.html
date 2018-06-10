@@ -1,0 +1,27 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    Articles
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/article.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="container">
+        <div class="row article">
+            <div class="col-md-12 text-centered">
+                <h2 class="title">{{news.title}}</h2>
+            </div>
+            <div class="col-md-12 text">
+                <p class="date" >{% trans "Mise en ligne le " %}{{news.date|date:"d M Y"}}{% trans " à " %}{{news.date|date:"H:m"}} par {{news.author}}</p>
+                <p>{{news.content|safe}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

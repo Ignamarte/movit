@@ -1,0 +1,41 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    Articles
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/article.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="container">
+        {% for piece_of_news in news %}
+        <div class="row article">
+            <div class="col-md-12 text-centered">
+                <h2 class="title"><a href="{% url 'pages:blog_detail' piece_of_news.id %}">{{piece_of_news.title}}</a></h2>
+            </div>
+            <div class="col-md-12 text">
+                <p class="date" >{% trans "Mise en ligne le " %}{{piece_of_news.date|date:"d M Y"}}{% trans " à " %}{{piece_of_news.date|date:"H:m"}} par {{piece_of_news.author}}</p>
+                <p>{{piece_of_news.content|safe}}</p>
+            </div>
+        </div>
+        {% endfor %}
+        {% if page_obj.has_next or page_obj.has_previous %}
+        <div class="row margin-top margin-bottom">
+            <div class="col-md-12 text">
+                {% if page_obj.has_previous %} <a href="{% url 'pages:blog'%}?page={{page_obj.previous_page_number}}" class="nav-link-pagin"><span class="fa fa-chevron-circle-left"></span> {% trans "Précédent" %}</a> {% endif %}
+                {% if page_obj.has_next %} <a href="{% url 'pages:blog'%}?page={{page_obj.next_page_number}}" class="nav-link-pagin" style="float: right">{% trans "Suivant" %} <span class="fa fa-chevron-circle-right"></span></a> {% endif %}
+            </div>
+        </div>
+        {% else %}
+        <div class="row margin-bottom">
+
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

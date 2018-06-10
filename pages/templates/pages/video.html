@@ -1,0 +1,49 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{{video.name}}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/video.css'%}">
+<link rel="stylesheet" href="{% static 'css/video-js.css'%}">
+<script type="text/javascript" src="{% static 'js/videojs.min.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+<div class="container">
+    <div class="row text-centered">
+        <h1 class="title"><span class="test">{{video.name}}</span></h1>
+    </div>
+    <div class="row text-centered">
+        <div class="col-md-12 video">
+            <p class="text date" >{% trans "Mise en ligne le " %}{{video.date|date:"d M Y"}}{% trans " à " %}{{video.date|date:"H:m"}} | <span class="bold">Année {{video.year}}</span></p>
+            <video id="my-video" class="video-js" controls preload="auto" poster="{{video.thumbnail.url}}" data-setup="{}">
+                <source src="{{video.video.url}}" type='video/mp4'>
+                <p class="vjs-no-js">
+                  To view this video please enable JavaScript, and consider upgrading to a web browser that
+                  <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+            </video>
+        </div>
+    </div>
+    <div class="row margin-bottom">
+        <div class="col-md-12 margin-top">
+            <div class="text">
+                <p style="float: right">Vues : {{video.count}}</p>
+                <h3>Description :</h3>
+                <p>{{video.description|linebreaks}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        window.HELP_IMPROVE_VIDEOJS = false;
+    </script>
+{% endblock %}

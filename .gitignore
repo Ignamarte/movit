@@ -1,0 +1,13 @@
+#Python
+__pycache__
+*.pyc
+
+#Django
+db.sqlite3
+db.sqlite3_admin
+media
+movit/settings_local.py
+migrations/
+
+#Vagrant
+.vagrant

@@ -1,0 +1,18 @@
+.article img {
+    border: 3px solid black;
+    max-width: 100%;
+    height: auto !important;
+}
+
+.nav-link-pagin, .nav-link-pagin:hover, .nav-link-pagin:visited {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.nav-link-wrapper {
+    display: inline-block;
+}
+
+.date {
+    font-size: 1.1em;
+}

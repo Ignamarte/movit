@@ -1,0 +1,38 @@
+.thumbnail {
+    position: relative;
+    width: 100%;
+    min-height: 100px;
+}
+
+.video-name {
+    padding: 5px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 50px;
+    background-color: rgba(59, 59, 59, 0.9);
+}
+
+.nav-link-pagin, .nav-link-pagin:hover, .nav-link-pagin:visited {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.video-link a, .video-link a:hover, .video-link a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.text {
+    border: 3px solid white !important;
+}
+
+@media (max-width: 991px) {
+    .video-name {
+        font-size: 0.5em !important;
+        bottom: 150px !important;
+    }
+
+    .title {
+        font-size: 2em !important;
+    }
+}

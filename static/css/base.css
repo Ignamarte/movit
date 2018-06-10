@@ -1,0 +1,170 @@
+@font-face {
+    font-family: PTSans;
+    src: url(../font/PTSans.ttf);
+}
+
+body, html{
+    font-family: PTSans;
+    color: white;
+    height: 95%;
+}
+
+.navigation {
+    text-align: center;
+    background-color: rgb(41, 41, 41);
+    list-style-type: none;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 0px !important;
+    border-bottom: 5px #8ec632 solid;
+}
+
+.navigation li {
+    display: inline-block;
+    margin:0px auto 0px auto;
+}
+
+.navigation li a {
+    color: white;
+    display: block;
+    padding: 12px;
+}
+
+.navigation li a:hover {
+    transition: all 0.5s;
+    text-decoration: none;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+}
+
+.nav-underline {
+    background-color: white;
+    height: 3px;
+    width: 100%;
+}
+
+.movit-logo {
+    height: 50px;
+}
+
+.logo-wrapper {
+    float: left;
+}
+
+footer {
+    height: 5%;
+    color: white;
+    background-color: rgb(41, 41, 41);
+    width: 100%;
+    border-top: 3px #8ec632 solid;
+}
+
+#footer {
+    opacity: 0;
+}
+
+.footer-text {
+    padding-top: 5px;
+}
+
+/* Stuff used by other pages */
+
+.text-centered {
+    text-align: center !important;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.radius {
+    border-radius: 100%;
+}
+
+.tabulation {
+    margin-left:3em
+}
+
+.margin-top {
+    margin-top: 3%;
+}
+
+@media (max-width: 991px) {
+    .margin-top-mobile {
+        margin-top: 3%;
+    }
+
+    .logo-wrapper {
+        display: inline-block;
+        float: none;
+    }
+
+    .nav-link {
+        display: none !important;
+    }
+
+    #menu-button {
+        float: right;
+        font-size: 2em;
+        padding-right: 8px;
+        display: block !important;
+    }
+
+    .container {
+        width: 96% !important;
+    }
+
+    body {
+        font-size: 3em;
+    }
+
+    .movit-logo {
+        height: 4em;
+    }
+}
+
+#menu-button {
+    display: none;
+}
+
+.margin-bottom {
+    margin-bottom: 3%;
+}
+
+.bigger-text{
+    font-size: 1.2em;
+}
+
+.title {
+    margin: 30px;
+    padding: 5px;
+    text-shadow: 0px 0px 3px black;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    border: 3px solid white;
+    box-shadow: 0px 0px 3px black;
+}
+
+.title a, .title a:hover, .title a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.text {
+    font-size: 1.1em;
+    border: 3px solid black;
+    padding: 10px;
+    width: 100%;
+    text-shadow: 0px 0px 3px black;
+    background-color: rgba(0, 0, 0, 0.85);
+    width: 100%;
+}
+
+.wrapper {
+    background: url(../image/background-video.jpg) center fixed;
+    background-size: cover;
+    min-height: 100%;
+}
