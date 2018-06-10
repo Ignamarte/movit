@@ -1,0 +1,9 @@
+pipeline:
+  Python test:
+    image: python:3
+    commands:
+      - apt-get -qq update
+      - apt-get -qq install libjpeg-dev zlib1g-dev gcc
+      - pip install --upgrade pip
+      - pip install -qUr requirements.txt
+      - python3 manage.py test
