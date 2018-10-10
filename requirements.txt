@@ -1,3 +1,3 @@
-Django==1.11
+Django==1.11.15
 Pillow==4.1.0
 django-ckeditor==5.2.2
